@@ -11,7 +11,18 @@ module.exports = {
   },
   /* Your site config here */
   plugins: [
-    'gatsby-plugin-sass',
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-source-contentful',
+      options: {
+        spaceId: 'jipriwglhrpa',
+        accessToken: 'hRLVlxIwsaPPyl50ZxnKqiNolK36hb7H4bda4taUsuU'
+      }
+
+    },
+
+    'gatsby-plugin-sass',    
+
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -19,6 +30,21 @@ module.exports = {
         path: `${__dirname}/src/`
       }
     },
-    'gatsby-transformer-remark'
+    'gatsby-plugin-sharp',
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          'gatsby-remark-relative-images',
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 750,
+              linkImagesToOriginal: false
+            }
+          }
+        ]
+      }
+    },
   ],
 }

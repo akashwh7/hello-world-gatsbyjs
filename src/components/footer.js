@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from "gatsby"
+import footerStyles from './footer.module.scss'
 
 const Footer = () => {
     const footerdata = useStaticQuery(graphql`
@@ -13,7 +14,7 @@ const Footer = () => {
     
     `)
     return (
-        <footer>
+        <footer className= {footerStyles.footer}>
             <p>Created by {footerdata.site.siteMetadata.author}. All rights reserved. ©2020</p>
         </footer>
     )
